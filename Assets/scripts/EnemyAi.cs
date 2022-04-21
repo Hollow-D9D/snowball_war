@@ -25,35 +25,27 @@ public class EnemyAi : MonoBehaviour
 
 
         agent.destination = player.transform.position;
-        if (Vector3.Distance(transform.position, player.transform.position) < 10f)
+       /* if (Vector3.Distance(transform.position, player.transform.position) < 10f)
         {
-            Damege(5);
-            
-
+            Damage(5);    
         }
         if (Vector3.Distance(transform.position, player.transform.position) < 5f)
         {
-            Damege(10);
+            Damage(10);
             Debug.Log("Yellow");
-
-        }
-
+        }*/
         if (score <= 0)
-            {
-            score = 0;
-            Destroy(this.gameObject);
-            
-            }
-
-    }
-
-       
-    public void Damege(int a)
         {
-
-            score -= a *Time.deltaTime/5;
-            Debug.Log(score);
+            score = 0;
+            Destroy(this.gameObject);        
         }
-
     }
+    /* Damage part is done via snowball */
+    public void Damage(int a)
+    {
+        //score -= a *Time.deltaTime/5;
+        score -= a;
+        // Debug.Log(score);
+    }
+}
 

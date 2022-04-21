@@ -17,7 +17,7 @@ public class Health : MonoBehaviour
 
 
 
-    public void Damege(int a)
+    public void Damage(int a)
     {
 
         score -= a;
