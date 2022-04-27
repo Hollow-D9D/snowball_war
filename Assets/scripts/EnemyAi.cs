@@ -7,10 +7,9 @@ public class EnemyAi : MonoBehaviour
 {
     //private Health health;
     public NavMeshAgent agent;
-  
     public GameObject player;
     float score = 100;
-    
+
     //public bool ismot = true;
     void Start()
     {
@@ -22,8 +21,6 @@ public class EnemyAi : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-
         agent.destination = player.transform.position;
        /* if (Vector3.Distance(transform.position, player.transform.position) < 10f)
         {
@@ -41,11 +38,12 @@ public class EnemyAi : MonoBehaviour
         }
     }
     /* Damage part is done via snowball */
-    public void Damage(int a)
-    {
-        //score -= a *Time.deltaTime/5;
+    public void Damage(int a) 
+    { 
         score -= a;
-        // Debug.Log(score);
+
+        Debug.Log(a);
+        DamagePopup.Create(transform.position, a);
     }
 }
 

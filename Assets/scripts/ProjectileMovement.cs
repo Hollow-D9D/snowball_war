@@ -7,7 +7,7 @@ public class ProjectileMovement : MonoBehaviour
     private Vector3 startScale;
     private Vector3 targetScale;
     float t = 0;
-    private float shrinkDuration = 3f;
+    private float shrinkDuration = 2f;
     // Start is called before the first frame update
     void Start()
     {

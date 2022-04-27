@@ -21,7 +21,6 @@ public class playercontroller : MonoBehaviour
     [SerializeField] private float CooldownDuration = 0.5f;
     // [SerializeField] private new Vector3 position;
 
-
     private void Start() 
     { 
         //_camera.transform.position = campos;
