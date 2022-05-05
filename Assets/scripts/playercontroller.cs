@@ -12,6 +12,8 @@ public class playercontroller : MonoBehaviour
     [SerializeField] private float _moveSpeed;
     [SerializeField] private Vector3 campos;
     [SerializeField] private float ratio;
+    [SerializeField] private EnemyManager enemy;
+
 
     /* Some Variables for snowball */
     [SerializeField] private GameObject projectile;
@@ -49,29 +51,20 @@ public class playercontroller : MonoBehaviour
         }
 
         /* Shooting */
-        RaycastHit hit;
-        if (isAvailable && Physics.Raycast(transform.position, fwd, out hit, 100))
-
+        if (isAvailable)
         {
-            var ri = hit.collider.gameObject.GetComponent<Rigidbody>();
-
-            // 
-            // hit.collider.gameObject.GetComponent<Renderer>().material.color = Color.red;
-            // Debug.Log("kpav");
-            if (hit.collider.tag == "enemy")
+            GameObject closest = enemy.getClosest(transform.position);
+            if (closest)
             {
-                if (hit.collider.gameObject.GetComponent<Renderer>().material.color == Color.red)
-                {
-                    //Destroy(hit.collider.gameObject);
+                Vector3 shootDir = closest.transform.position - transform.position;
 
-                }
+
+                // 
+                // hit.collider.gameObject.GetComponent<Renderer>().material.color = Color.red;
+                // Debug.Log("kpav");
                 // Debug.Log("kpav enemy");
-                ri.AddForce(-hit.normal * 2, ForceMode.Impulse);
-                hit.collider.gameObject.GetComponent<Renderer>().material.color = Color.red;
-
                 /* Summoning Snowball. */
                 GameObject Snowball = Instantiate(projectile, transform.position, transform.rotation);
-                Vector3 shootDir = hit.point - transform.position;
                 Snowball.GetComponent<ProjectileMovement>().Setup(shootDir.normalized);
 //                Snowball.GetComponent<Rigidbody>().AddRelativeForce(transform.TransformDirection(Vector3.forward) * throwPower);
 

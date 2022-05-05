@@ -8,6 +8,8 @@ public class ProjectileMovement : MonoBehaviour
     private Vector3 targetScale;
     float t = 0;
     private float shrinkDuration = 2f;
+    private Vector3 pushDir;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -31,6 +33,7 @@ public class ProjectileMovement : MonoBehaviour
         /* Giving snowball direction and speed */
         Rigidbody Rbody = GetComponent<Rigidbody>();
         float moveSpeed = 20f;
+        pushDir = shootDir;
         Rbody.AddForce(shootDir * moveSpeed, ForceMode.Impulse); 
     }
 
@@ -39,6 +42,8 @@ public class ProjectileMovement : MonoBehaviour
         EnemyAi target = other.GetComponent<EnemyAi>();
         if (target != null)
         {
+            Rigidbody ri = other.GetComponent<Rigidbody>();
+            ri.AddForce(pushDir * 2, ForceMode.Impulse);
             Debug.Log("Valod" + transform.localScale.z * 50f);
             target.Damage((int)(transform.localScale.z * 50f));
             Destroy(gameObject);

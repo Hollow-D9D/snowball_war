@@ -41,7 +41,7 @@ public class EnemyAi : MonoBehaviour
     public void Damage(int a) 
     { 
         score -= a;
-
+       
         Debug.Log(a);
         DamagePopup.Create(transform.position, a);
     }
