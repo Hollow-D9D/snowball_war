@@ -4,33 +4,29 @@ using UnityEngine;
 
 public class EnemyManager : MonoBehaviour
 {
-    public GameObject[] enemyArr;
+    public static ArrayList enemyArr;
     // Start is called before the first frame update
     void Start()
     {
         // Fill the array with the existing enemy members;
-        enemyArr = GameObject.FindGameObjectsWithTag("enemy");
+        enemyArr = new ArrayList(GameObject.FindGameObjectsWithTag("enemy"));
     }
 
     //Get the closest at the moment
     public GameObject getClosest(Vector3 position)
     {
         GameObject closest = null;
-        for (int i = 0; i < enemyArr.Length; i++)
+        foreach (GameObject obj in enemyArr)
         {
+            //if (obj == null)
+              //  enemyArr.Remove(obj);
             if (!closest)
             {
-                closest = enemyArr[i++];
+                closest = obj;
                 continue;
             }
-            if (!enemyArr[i])
-            {
-                enemyArr = GameObject.FindGameObjectsWithTag("enemy");
-                return (getClosest(position));
-            }
-            if (Vector3.Distance(position, enemyArr[i].transform.position) < Vector3.Distance(position, closest.transform.position))
-                    closest = enemyArr[i];
-            i++;
+            if (Vector3.Distance(position, obj.transform.position) < Vector3.Distance(position, closest.transform.position))
+                    closest = obj;
         }
         return closest;
     }

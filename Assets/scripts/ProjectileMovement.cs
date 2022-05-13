@@ -44,7 +44,7 @@ public class ProjectileMovement : MonoBehaviour
         {
             Rigidbody ri = other.GetComponent<Rigidbody>();
             ri.AddForce(pushDir * 2, ForceMode.Impulse);
-            Debug.Log("Valod" + transform.localScale.z * 50f);
+           // Debug.Log("Valod" + transform.localScale.z * 50f);
             target.Damage((int)(transform.localScale.z * 50f));
             Destroy(gameObject);
         } 

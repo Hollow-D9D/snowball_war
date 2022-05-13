@@ -34,7 +34,8 @@ public class EnemyAi : MonoBehaviour
         if (score <= 0)
         {
             score = 0;
-            Destroy(this.gameObject);        
+            EnemyManager.enemyArr.Remove(this.gameObject);
+            Destroy(this.gameObject);
         }
     }
     /* Damage part is done via snowball */
