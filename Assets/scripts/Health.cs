@@ -21,6 +21,6 @@ public class Health : MonoBehaviour
     {
 
         score -= a;
-        Debug.Log(score);
+        //Debug.Log(score);
     }
 }

@@ -20,13 +20,13 @@ public class DamagePopup : MonoBehaviour
     private void Awake()
     {
         damagePopupText = transform.GetComponent<TextMeshPro>();
-        Debug.Log("hey");
+        //Debug.Log("hey");
     }
 
     // Update is called once per frame
     private void Setup(int damageAmount)
     {
-        Debug.Log("hey");
+        //Debug.Log("hey");
         damagePopupText.SetText(damageAmount.ToString());
         disappearTimer = 1f;
     }
