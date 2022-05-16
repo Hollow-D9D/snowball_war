@@ -24,6 +24,7 @@ public class Shooting : MonoBehaviour
     [Header("Ammo Reload and stuff")]
     [SerializeField] private int ammo;
     private int ammoCount;
+
     [SerializeField] private float reloadTime;
     private bool canReload;
     private float reloadTimer;
@@ -60,6 +61,7 @@ public class Shooting : MonoBehaviour
 
                 /* Summoning Snowball. */
                 GameObject Snowball = Instantiate(projectile, transform.position, transform.rotation);
+                Snowball.transform.tag = "PlayerSpawned";
                 Snowball.GetComponent<ProjectileMovement>().Setup(shootDir.normalized);
 
                 /* Cooldown Coroutine */

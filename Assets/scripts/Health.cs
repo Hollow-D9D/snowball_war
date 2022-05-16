@@ -14,13 +14,22 @@ public class Health : MonoBehaviour
     }
 
     // Update is called once per frame
-
+    private void Update()
+    {
+        if (score <= 0)
+        {
+            score = 0;
+            EnemyManager.enemyArr.Remove(this.gameObject);
+            Destroy(this.gameObject);
+        }
+    }
 
 
     public void Damage(int a)
     {
 
         score -= a;
+        DamagePopup.Create(transform.position, a);
         //Debug.Log(score);
     }
 }

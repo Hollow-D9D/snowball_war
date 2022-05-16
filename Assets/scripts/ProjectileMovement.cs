@@ -39,13 +39,12 @@ public class ProjectileMovement : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        EnemyAi target = other.GetComponent<EnemyAi>();
-        if (target != null)
+        string tag = other.gameObject.transform.tag;
+        if ((tag == "Player" && transform.tag == "EnemySpawned") || (tag == "enemy" && transform.tag == "PlayerSpawned"))
         {
             Rigidbody ri = other.GetComponent<Rigidbody>();
             ri.AddForce(pushDir * 2, ForceMode.Impulse);
-           // Debug.Log("Valod" + transform.localScale.z * 50f);
-            target.Damage((int)(transform.localScale.z * 50f));
+            other.gameObject.GetComponent<Health>().Damage((int)(transform.localScale.z * 50f));
             Destroy(gameObject);
         } 
     }

@@ -8,7 +8,7 @@ public class EnemyAi : MonoBehaviour
     //private Health health;
     public NavMeshAgent agent;
     public GameObject player;
-    float score = 100;
+
 
     //public bool ismot = true;
     void Start()
@@ -31,20 +31,8 @@ public class EnemyAi : MonoBehaviour
             Damage(10);
             Debug.Log("Yellow");
         }*/
-        if (score <= 0)
-        {
-            score = 0;
-            EnemyManager.enemyArr.Remove(this.gameObject);
-            Destroy(this.gameObject);
-        }
+        
     }
     /* Damage part is done via snowball */
-    public void Damage(int a) 
-    { 
-        score -= a;
-       
-        //Debug.Log(a);
-        DamagePopup.Create(transform.position, a);
-    }
 }
 
