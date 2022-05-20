@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private GameObject player;
+    [SerializeField] private GameObject sled;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,7 +15,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
-        if (player == null)
+        if (player == null || sled == null)
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
