@@ -11,7 +11,7 @@ public class EnemyShooting : MonoBehaviour
     public bool isAvailable = true;
     [SerializeField] private float CooldownDuration = 0.5f;
 
-    [SerializeField] private GameObject player;
+    public GameObject player;
     // Start is called before the first frame update
     void Start()
     {

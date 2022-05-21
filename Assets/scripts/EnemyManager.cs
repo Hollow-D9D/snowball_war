@@ -9,7 +9,12 @@ public class EnemyManager : MonoBehaviour
     void Start()
     {
         // Fill the array with the existing enemy members;
+    }
+
+    public void setup()
+    {
         enemyArr = new ArrayList(GameObject.FindGameObjectsWithTag("enemy"));
+
     }
 
     //Get the closest at the moment
