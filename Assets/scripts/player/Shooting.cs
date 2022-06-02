@@ -8,6 +8,7 @@ public class Shooting : MonoBehaviour
     [SerializeField] private Camera cam;
     [Header("for Auto Target")]
     [SerializeField] private EnemyManager enemy;
+    [SerializeField] private float range;
 
 
     [Header("Some Variable for snowball")]
@@ -55,7 +56,7 @@ public class Shooting : MonoBehaviour
         if (isAvailable && ammoCount > 0)
         {
             GameObject closest = enemy.getClosest(transform.position);
-            if (closest)
+            if (closest && Vector3.Distance(closest.transform.position, transform.position) < range)
             {
                 Vector3 shootDir = closest.transform.position - transform.position;
 
@@ -75,11 +76,7 @@ public class Shooting : MonoBehaviour
     {
 
         if (collision.gameObject.tag == "sled")
-        {
-            //Vector3 uiPosition = cam.WorldToScreenPoint(collision.gameObject.transform.position);
-            
-            canReload = true;
-        }
+             canReload = true;
     }
 
     private void OnTriggerExit(Collider collision)

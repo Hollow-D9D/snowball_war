@@ -5,6 +5,7 @@ using UnityEngine;
 public class MeleeHit : MonoBehaviour
 {
     private bool isAvailable;
+    [SerializeField] private int damage = 10;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,8 +16,7 @@ public class MeleeHit : MonoBehaviour
     {
         if (collision.gameObject.tag == "sled" && isAvailable)
         {
-        Debug.Log("Mta");
-            collision.gameObject.GetComponent<Health>().Damage(20);
+            collision.gameObject.GetComponent<Health>().Damage(damage);
             StartCoroutine(hitCooldown());
         }
     }

@@ -29,6 +29,7 @@ public class SnowmanSpawn : MonoBehaviour
         if (reloadTimer >= reloadTime)
         {
             GameObject Snowman = Instantiate(SnowmanPf, transform.position + new Vector3(0f, 0.5f, 0f), transform.rotation);
+            Destroy(spawnCircle);
             Destroy(gameObject);
         }
     }
@@ -36,11 +37,7 @@ public class SnowmanSpawn : MonoBehaviour
     {
 
         if (collision.gameObject.tag == "Player")
-        {
-            //Vector3 uiPosition = cam.WorldToScreenPoint(collision.gameObject.transform.position);
-
             canReload = true;
-        }
     }
 
     private void OnTriggerExit(Collider collision)

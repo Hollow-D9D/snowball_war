@@ -111,5 +111,4 @@ MonoBehaviour:
   projectile: {fileID: 4256834454430924641, guid: 80bcc59150b695846b23258f6f322d1f, type: 3}
   enemy: {fileID: 5715952487204216060, guid: 270d8809911ac2f48b74ba4baababbce, type: 3}
   isAvailable: 1
-  CooldownDuration: 0.5
-  player: {fileID: 0}
+  CooldownDuration: 1
