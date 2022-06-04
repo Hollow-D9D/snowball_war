@@ -5,12 +5,12 @@ using UnityEngine;
 public class Health : MonoBehaviour
 {
 
-    public static Health health;
+    [SerializeField] private int maxHealth;
     private int score;
     // Start is called before the first frame update
     void Start()
     {
-        score = 100;
+        score = maxHealth;
     }
 
     // Update is called once per frame
