@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
+        //Fix Game Over part
         if (player == null || sled == null)
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }

@@ -109,7 +109,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7612283835075539684}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 10
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -165,7 +165,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f96f516fc9a75a4aa7196612277a6db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  score: 0
+  maxHealth: 30
 --- !u!114 &5728296099141053964
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -178,6 +178,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c41218448350ba34e95e722d517a4c46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 10
 --- !u!114 &1506694107931781918
 MonoBehaviour:
   m_ObjectHideFlags: 0
